@@ -27,27 +27,24 @@ return {
 		mason_lspconfig.setup({
 			-- list of servers for mason to install
 			ensure_installed = {
-				"tsserver", -- Correct server name for TypeScript
-				"html",
-				"cssls",
-				"tailwindcss",
 				"svelte",
 				"lua_ls",
-				"graphql",
-				"emmet_ls",
-				"prismals",
-				"pyright",
+				"pyright", -- Python
+				-- "typescript-language-server", -- JavaScript/TypeScript
+				"clangd", -- C/C++
+				"gopls", -- Go
 			},
+			automatic_installation = true,
 		})
 
 		mason_tool_installer.setup({
 			ensure_installed = {
-				"prettier", -- prettier formatter
-				"stylua", -- lua formatter
-				"isort", -- python formatter
-				"black", -- python formatter
-				"pylint", -- python linter
-				"eslint_d", -- js linter
+				"svelte", -- Svelte
+				"lua_ls", -- Lua LSP
+				"pyright", -- Python LSP
+				-- "typescript-language-server", -- JavaScript/TypeScript LSP
+				"clangd", -- C/C++ LSP
+				"gopls", -- Go LSP
 			},
 		})
 	end,
