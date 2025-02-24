@@ -17,22 +17,39 @@ vim.wo.foldlevel = 0
 vim.cmd([[highlight Folded guibg=NONE guifg=fg]])
 
 -- Auto activate python env
-local env_dirs = { ".venv", "env", "venv" }
 local found_env = false
 local cur_env = ""
 
-for _, dir in ipairs(env_dirs) do
-	local env_path = vim.fn.getcwd() .. "/" .. dir .. "/bin/python"
-	if vim.fn.executable(env_path) == 1 then
-		vim.g.python3_host_prog = env_path
-		found_env = true
-		cur_env = env_path
-		break
+-- Get the current working directory
+local cwd = vim.fn.getcwd()
+
+-- Recursively search for Python virtual environments in subdirectories
+local function find_python_env(path)
+	for _, entry in ipairs(vim.fn.readdir(path)) do
+		local entry_path = path .. "/" .. entry
+		if vim.fn.isdirectory(entry_path) == 1 then -- If it's a directory
+			-- Check if the directory contains bin/python
+			if vim.fn.executable(entry_path .. "/bin/python") == 1 then
+				return entry_path .. "/bin/python"
+			end
+			-- Recursively search subdirectories
+			local result = find_python_env(entry_path)
+			if result then
+				return result
+			end
+		end
 	end
+	return nil
 end
 
-if not found_env then
-	print("No virtual environment found (checked .venv, env, venv)")
+-- Try to find a Python environment
+cur_env = find_python_env(cwd)
+
+-- If found, set the environment and notify
+if cur_env ~= "" then
+	vim.g.python3_host_prog = cur_env
+	found_env = true
+	vim.notify("Current python env: " .. cur_env, vim.log.levels.INFO)
 else
-	print("Current python env:", cur_env)
+	vim.notify("No virtual environment found", vim.log.levels.INFO)
 end
