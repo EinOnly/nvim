@@ -47,5 +47,21 @@ return {
 				"gopls", -- Go LSP
 			},
 		})
+
+		-- Set up clangd LSP with an on_attach hook to ensure the shiftwidth is set to 4
+		local lspconfig = require("lspconfig")
+		lspconfig.clangd.setup({
+			on_attach = function(client, bufnr)
+				-- Disable LSP formatting for clangd
+				client.server_capabilities.document_formatting = false
+				-- Optionally, you can also disable document_range_formatting if needed
+				client.server_capabilities.document_range_formatting = false
+
+				-- Ensure shiftwidth, tabstop, and expandtab are set correctly
+				vim.bo.shiftwidth = 4 -- Set shiftwidth to 4 spaces
+				vim.bo.tabstop = 4 -- Set tabstop to 4 spaces
+				vim.bo.expandtab = true -- Use spaces instead of tabs
+			end,
+		})
 	end,
 }

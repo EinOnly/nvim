@@ -21,6 +21,10 @@ return {
 			autotag = {
 				enable = true,
 			},
+			fold = {
+				enable = true,
+				folding = true,
+			},
 			-- ensure these language parsers are installed
 			ensure_installed = {
 				"markdown",
