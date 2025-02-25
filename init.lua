@@ -17,7 +17,6 @@ vim.wo.foldlevel = 0
 vim.cmd([[highlight Folded guibg=NONE guifg=fg]])
 
 -- Auto activate python env
-local found_env = false
 local cur_env = ""
 
 -- Get the current working directory
@@ -39,7 +38,7 @@ local function find_python_env(path)
 			end
 		end
 	end
-	return nil
+	return ""
 end
 
 -- Try to find a Python environment
@@ -48,7 +47,19 @@ cur_env = find_python_env(cwd)
 -- If found, set the environment and notify
 if cur_env ~= "" then
 	vim.g.python3_host_prog = cur_env
-	found_env = true
+
+	-- Optionally, set environment variables for Python
+	vim.fn.setenv("VIRTUAL_ENV", cur_env) -- Set the VIRTUAL_ENV variable
+	vim.fn.setenv("PATH", cur_env .. "/bin:" .. vim.fn.getenv("PATH")) -- Add virtual env bin to PATH
+	vim.fn.setenv("PYTHONHOME", "") -- Ensure the system Python isn't being used
+
+	-- Set the PYTHONPATH so that Python can find the packages in the virtual environment
+	local site_packages = cur_env
+		.. "/lib/python"
+		.. vim.fn.matchstr(vim.fn.system("python3 -c 'import sys; print(sys.version_info.major)'"), "\\d+")
+		.. "/site-packages"
+	vim.fn.setenv("PYTHONPATH", site_packages)
+
 	vim.notify("Current python env: " .. cur_env, vim.log.levels.INFO)
 else
 	vim.notify("No virtual environment found", vim.log.levels.INFO)

@@ -1,0 +1,200 @@
+{
+    // suto save
+    "database-client.autoSync": true,
+    //workbench settings 
+    "workbench.colorTheme": "GitHub Dark",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.settings.useSplitJSON": true,
+    "workbench.tree.stickyScrollMaxItemCount":7,
+
+    // Window settings
+    "window.zoomPerWindow":true,
+
+    // Terminal settings
+    "terminal.integrated.allowMnemonics": true,
+    "terminal.integrated.scrollback": 5000,
+    "terminal.integrated.enableMultiLinePasteWarning": "always",
+    "terminal.integrated.accessibleViewFocusOnCommandExecution": false,
+    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.fontFamily": "MesloLGM Nerd Font",
+    "terminal.integrated.fontWeight": "normal",
+    "debug.terminal.clearBeforeReusing": true,
+    
+    //Git settings
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "git.autorefresh": false,
+    "git.ignoreMissingGitWarning": true,
+    
+    //Explorer settings
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "explorer.sortOrder": "type",
+    "explorer.sortOrderLexicographicOptions": "unicode",
+    "explorer.fileNesting.enabled": true,
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "editor.accessibilitySupport": "off",
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    "editor.stickyScroll.enabled": true,
+    "editor.fontLigatures": false,
+    "editor.quickSuggestionsDelay": 0,
+    "editor.hover.delay": 50,
+    "editor.minimap.size": "fit",
+    "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace, ‘MesloLGM Nerd Font’",
+    "editor.minimap.showSlider": "always",
+    "editor.mouseWheelZoom": true,
+    "editor.semanticHighlighting.enabled":true,
+    
+    
+    // For my C++ Only
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": "comment.block",
+                "settings": {
+                    "foreground": "#62846a"
+                }
+            },
+            {
+                "scope": "comment.line",
+                "settings": {
+                    "foreground": "#62846a"
+                }
+            }
+            {
+                "scope": "entity.name.function",
+                "settings": {
+                    "foreground": "#bf5bbc"  // Function = colors.mauve
+                }
+            },
+            {
+                "scope": "keyword.control",
+                "settings": {
+                    "foreground": "#f97583"  // Keyword = colors.flamingo
+                }
+            },
+            {
+                "scope": "macro",
+                "settings": {
+                    "foreground": "#8600ff"  // Macro
+                }
+            },
+            {
+                "scope": "string.quoted",
+                "settings": {
+                    "foreground": "#c8e4d8"  // Character
+                }
+            },
+            {
+                "scope": "keyword.control.conditional",
+                "settings": {
+                    "foreground": "#f97583"  // Conditional
+                }
+            },
+            {
+                "scope": "keyword.control.include",
+                "settings": {
+                    "foreground": "#f97583"  // Include
+                }
+            },
+            {
+                "scope": "variable.language.define",
+                "settings": {
+                    "foreground": "#f97583"  // Define
+                }
+            },
+            {
+                "scope": "entity.name.structure",
+                "settings": {
+                    "foreground": "#6a5acd"  // Structure
+                }
+            },
+            {
+                "scope": "entity.name.type",
+                "settings": {
+                    "foreground": "#8993d3"  // Typedef
+                }
+            },
+            {
+                "scope": "variable.other.identifier",
+                "settings": {
+                    "foreground": "#788ee0"  // Identifier
+                }
+            },
+            {
+                "scope": "entity.name.type",
+                "settings": {
+                    "foreground": "#a5a5fa"  // Type
+                }
+            },
+            {
+                "scope": "constant",
+                "settings": {
+                    "foreground": "#788ee0"  // Constant
+                }
+            },
+            {
+                "scope": "variable.other.property.cpp",
+                "settings": {
+                    "foreground": "#8099de"  // Storage type
+                }
+            },
+            {
+                "scope": "storage.modifier.specifier.const.cpp"
+                "settings": {
+                    "foreground": "#ee9696"  // Storage type
+                }
+            }
+        ]
+    },
+    
+
+    //Customer CSS
+    // "vscode_custom_css.imports": [
+    //     "file:///Users/ein/.config/nvim/vscode/vscode-vibrancy-style.css",
+    //     "file:///Users/ein/.config/nvim/vscode/terminal.css",
+    //     "file:///Users/ein/.config/nvim/vscode/toolbar.css",
+    //     "file:///Users/ein/.config/nvim/vscode/enable-electron-vibrancy.js",
+    // ],
+    // "vscode_custom_css.policy": true,
+
+    //Vim settings
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "j"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>", "d"],
+            "after": ["d", "d"]
+        },
+        {
+            "before": ["<C-n>"],
+            "commands": [":nohl"]
+        },
+        {
+            "before": ["K"],
+            "commands": ["lineBreakInsert"],
+            "silent": true
+        }
+    ],
+    "vim.leader": "<space>",
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false
+    },
+
+    // Camke settings
+    "cmake.configureOnOpen": true,
+    "cmake.options.statusBarVisibility": "icon",
+}
+// To 
+// ln -s ~/.config/nvim/vscode/settings.json /Users/ein/Library/Application Support/Code/User/settings.json
