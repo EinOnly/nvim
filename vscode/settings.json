@@ -18,6 +18,7 @@
     "terminal.integrated.fontSize": 13,
     "terminal.integrated.fontFamily": "MesloLGM Nerd Font",
     "terminal.integrated.fontWeight": "normal",
+    "terminal.integrated.defaultLocation": "right",
     "debug.terminal.clearBeforeReusing": true,
     
     //Git settings
@@ -45,6 +46,7 @@
     "editor.minimap.showSlider": "always",
     "editor.mouseWheelZoom": true,
     "editor.semanticHighlighting.enabled":true,
+    "editor.lineNumbers": "relative",
     
     
     // For my C++ Only
@@ -148,16 +150,6 @@
             }
         ]
     },
-    
-
-    //Customer CSS
-    // "vscode_custom_css.imports": [
-    //     "file:///Users/ein/.config/nvim/vscode/vscode-vibrancy-style.css",
-    //     "file:///Users/ein/.config/nvim/vscode/terminal.css",
-    //     "file:///Users/ein/.config/nvim/vscode/toolbar.css",
-    //     "file:///Users/ein/.config/nvim/vscode/enable-electron-vibrancy.js",
-    // ],
-    // "vscode_custom_css.policy": true,
 
     //Vim settings
     "vim.easymotion": true,

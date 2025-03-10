@@ -1,5 +1,5 @@
-require("josean.core")
-require("josean.lazy")
+require("ein.core")
+require("ein.lazy")
 
 -- Make NvimTree background completely transparent
 vim.api.nvim_set_hl(0, "NvimTreeNormal", { bg = "NONE" }) -- Set background transparent for NvimTree
